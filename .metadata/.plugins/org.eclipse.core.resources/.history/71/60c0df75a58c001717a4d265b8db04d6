@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+    "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<package name="default" extends="struts-default" namespace="/">
+	<!-- 	define action -->	
+	<!-- Show all Product by select Category -->
+	<action name="category" class="cmc.struts.action.ProductAction" method="getProductByCategoryId">
+		<result name="success">/productcategories.jsp</result>
+	</action>
+	<!-- Show Detail Product  -->
+	<action name="product" class="cmc.struts.action.ProductAction" method="getProductById">
+		<result name="success">/detailproduct.jsp</result>
+	</action>
+	<!-- Action Login -->
+	<action name="login" class="cmc.struts.action.UserAction" method="Login">
+		<result name="user">/index.jsp</result>
+		<result name="error">/login.jsp</result>
+		<result name="admin">admin/index.jsp</result>
+	</action>
+	</package>
+	<package name="mypackage" extends="struts-default" namespace="/admin">
+		<!-- Action for Product -->
+		
+		<action name="getproduct" class="cmc.struts.action.ProductAction" method="getAllProduct">
+			<result name="success">/admin/product.jsp</result>
+		</action>
+		<action name="addproduct" class="cmc.struts.action.ProductAction">
+			<result name="success">/admin/addproduct.jsp</result>
+		</action>
+		<action name="doaddproduct" class="cmc.struts.action.ProductAction" method="insertProduct">
+			<result name="success" type="chain">getproduct</result>
+		</action>
+		<action name="editproduct" class="cmc.struts.action.ProductAction">
+			<result name="success">/admin/editproduct.jsp</result>
+		</action>
+		<action name="doeditproduct" class="cmc.struts.action.ProductAction" method="editProduct">
+			<result name="success" type="chain">getproduct</result>
+		</action>
+		<action name="deleteproduct" class="cmc.struts.action.ProductAction" method="deleteProduct">
+			<result name="success" type="chain">getproduct</result>
+		</action>
+		<action name="deletemultipleproduct" class="cmc.struts.action.ProductAction" method="deleteMultipleProduct">
+			<result name="success" type="chain">getproduct</result>
+		</action>
+		
+		<!-- Action for Category -->
+		
+		<action name="getcategory" class="cmc.struts.action.CategoryAction" method="getAllCategories">
+			<result name="success">/admin/category.jsp</result>
+		</action>
+		<action name="addcategory" class="cmc.struts.action.CategoryAction">
+			<result name="success">/admin/addcategory.jsp</result>
+		</action>
+		<action name="doaddcategory" class="cmc.struts.action.CategoryAction" method="insertCategory">
+			<result name="success" type="chain">getcategory</result>
+		</action>
+		<action name="editcategory" class="cmc.struts.action.CategoryAction">
+			<result name="success">/admin/editcategory.jsp</result>
+		</action>
+		<action name="doeditcategory" class="cmc.struts.action.CategoryAction" method="editCategory">
+			<result name="success" type="chain">getcategory</result>
+		</action>
+		<action name="deletecategory" class="cmc.struts.action.CategoryAction" method="deleteCategory">
+			<result name="success" type="chain">getcategory</result>
+		</action>
+		<action name="deletemultiplecategory" class="cmc.struts.action.CategoryAction" method="deleteMultipleCategory">
+			<result name="success" type="chain">getcategory</result>
+		</action>
+		
+		<!-- Action for User -->
+		<!-- <action name="getuser" class="cmc.struts.action.UserAction" method="getAllUser">
+			<result name="success">/admin/user.jsp</result>
+		</action>
+		<action name="adduser" class="cmc.struts.action.CategoryAction">
+			<result name="success">/admin/addcategory.jsp</result>
+		</action>
+		<action name="doadduser" class="cmc.struts.action.CategoryAction" method="insertCategory">
+			<result name="success" type="chain">getcategory</result>
+		</action>
+		<action name="edituser" class="cmc.struts.action.CategoryAction">
+			<result name="success">/admin/editcategory.jsp</result>
+		</action>
+		<action name="doedituser" class="cmc.struts.action.CategoryAction" method="editCategory">
+			<result name="success" type="chain">getcategory</result>
+		</action>
+		<action name="deleteuser" class="cmc.struts.action.CategoryAction" method="deleteCategory">
+			<result name="success" type="chain">getcategory</result>
+		</action> -->
+	</package>
+</struts>

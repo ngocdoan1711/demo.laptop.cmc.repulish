@@ -1,0 +1,72 @@
+/**
+ * 
+ */
+package cmc.strust.action;
+
+import java.sql.SQLException;
+import java.util.List;
+
+import cmc.strust.bus.ProductBUS;
+import cmc.strust.dao.ProductDao;
+import cmc.strust.model.Product;
+
+/**
+ * @author User
+ *
+ */
+public class ProductAction {
+	private Product product;
+	private List<Product> listProduct;
+	private int categoryId;
+	private int productId;
+	
+	public String getAllProduct() throws ClassNotFoundException, SQLException {
+		ProductBUS productBUS = new ProductBUS();
+		listProduct = productBUS.getAllProduct();
+		return "success";
+	}
+	
+	public String getProductByCategoryId() throws ClassNotFoundException, SQLException {
+		ProductBUS productBUS = new ProductBUS();
+		listProduct = productBUS.getProductByCategoryId(categoryId);
+		return "success";
+	}
+	
+	public String getProductById() throws SQLException, ClassNotFoundException {
+		ProductBUS productBUS = new ProductBUS();
+		product = productBUS.getProductById(productId);
+		return "success";
+	}
+	
+	public String insertProduct() throws SQLException, ClassNotFoundException {
+		ProductBUS productBUS = new ProductBUS();
+		productBUS.insertProduct(product);
+		return "success"; 
+	}
+	
+	public String editProduct(int productId, Product product) throws SQLException, ClassNotFoundException {
+		ProductBUS productBUS = new ProductBUS();
+		productBUS.editProduct(productId, product);
+		return "success";
+	}
+	
+	public String deleteProduct(int productId) throws SQLException, ClassNotFoundException{
+		ProductBUS productBUS = new ProductBUS();
+		productBUS.deleteProduct(productId);
+		return "success";
+	}
+	
+	public Product getProduct() {
+		return product;
+	}
+	public void setProduct(Product product) {
+		this.product = product;
+	}
+	public List<Product> getListProduct() {
+		return listProduct;
+	}
+	public void setListProduct(List<Product> listProduct) {
+		this.listProduct = listProduct;
+	}
+	
+}

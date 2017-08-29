@@ -1,0 +1,5 @@
+package cmc.strust.dao;
+
+public class CommentDao {
+
+}

@@ -1,0 +1,189 @@
+/**
+ * 
+ */
+package cmc.struts.action;
+
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.opensymphony.xwork2.ActionSupport;
+
+import cmc.struts.bus.CategoryBUS;
+import cmc.struts.bus.ProductBUS;
+import cmc.struts.model.Category;
+import cmc.struts.model.Product;
+
+/**
+ * @author User
+ *
+ */
+public class ProductAction extends ActionSupport {
+	/**
+	 * 
+	 */
+	
+	private static final long serialVersionUID = 1L;
+	private Product product;
+	private List<Product> listProduct;
+	private int categoryId;
+	private int productId;
+	private Category category;
+	private List<Category> listCategory;
+	private List<ProductGet> listProductGet;
+	private String note;
+	
+	
+	public static final String SUCCESS = "success";
+	
+	private class ProductGet extends Product{
+		String categoryName;
+
+		public String getCategoryName() {
+			return categoryName;
+		}
+
+		public void setCategoryName(String categoryName) {
+			this.categoryName = categoryName;
+		}
+
+		public ProductGet(String categoryName) {
+			super();
+			this.categoryName = categoryName;
+		}
+
+		public ProductGet() {
+			super();
+			// TODO Auto-generated constructor stub
+		}
+
+		public ProductGet(int productId, int caterogyId, String productName, float price, String image,
+				String description) {
+			super(productId, caterogyId, productName, price, image, description);
+			// TODO Auto-generated constructor stub
+		}
+		
+		
+	}
+	public String execute() throws Exception {
+		CategoryBUS categoryBUS = new CategoryBUS();
+		listCategory = categoryBUS.getAllCategories();
+	      return SUCCESS;
+	   }
+	
+	public String getAllProduct() throws ClassNotFoundException, SQLException {
+		ProductBUS productBUS = new ProductBUS();
+		CategoryBUS categoryBUS = new CategoryBUS();
+		List<ProductGet> list = new ArrayList<ProductGet>();
+		for(Product product: productBUS.getAllProduct()) {
+			ProductGet productGet = new ProductGet();
+			Category category = categoryBUS.getCategoryById(product.getCategoryId());
+			productGet.setProductId(product.getProductId());
+			productGet.setProductName(product.getProductName());
+			productGet.setPrice(product.getPrice());
+			productGet.setDescription(product.getDescription());
+			productGet.setImage(product.getImage());
+			productGet.setPrice(product.getPrice());
+			productGet.setCategoryName(category.getCategoryName());
+			list.add(productGet);
+		}
+		listProductGet = list;
+		return SUCCESS;
+	}
+	
+	public String getProductByCategoryId() throws ClassNotFoundException, SQLException {
+		ProductBUS productBUS = new ProductBUS();
+		CategoryBUS categoryBUS = new CategoryBUS();
+		listProduct = productBUS.getProductByCategoryId(categoryId);
+		category = categoryBUS.getCategoryById(categoryId);
+		return SUCCESS;
+	}
+	
+	public String getProductById() throws SQLException, ClassNotFoundException {
+		ProductBUS productBUS = new ProductBUS();
+		CategoryBUS categoryBUS = new CategoryBUS();
+		product = productBUS.getProductById(productId);
+		category = categoryBUS.getCategoryByProductId(productId);
+		return SUCCESS;
+	}
+	
+	public String insertProduct() throws SQLException, ClassNotFoundException {
+		ProductBUS productBUS = new ProductBUS();
+		productBUS.insertProduct(product);
+		note = "Add Product Success!";
+		return SUCCESS; 
+	}
+	
+	public String editProduct() throws SQLException, ClassNotFoundException {
+		ProductBUS productBUS = new ProductBUS();
+		productBUS.editProduct(productId, product);
+		return SUCCESS;
+	}
+	
+	public String deleteProduct() throws SQLException, ClassNotFoundException{
+		ProductBUS productBUS = new ProductBUS();
+		productBUS.deleteProduct(productId);
+		note = "Delete Product Success!";
+		return SUCCESS;
+	}
+	
+	public String deleteMultipleProduct() throws SQLException, ClassNotFoundException{
+		ProductBUS productBUS = new ProductBUS();
+		note = "Delete Product Success!";
+		return SUCCESS;
+	}
+	
+	public List<ProductGet> getListProductGet() {
+		return listProductGet;
+	}
+
+	public void setListProductGet(List<ProductGet> listProductGet) {
+		this.listProductGet = listProductGet;
+	}
+
+	public Category getCategory() {
+		return category;
+	}
+
+	public void setCategory(Category category) {
+		this.category = category;
+	}
+
+	public List<Category> getListCategory() {
+		return listCategory;
+	}
+
+	public void setListCategory(List<Category> listCategory) {
+		this.listCategory = listCategory;
+	}
+
+	public Product getProduct() {
+		return product;
+	}
+	public void setProduct(Product product) {
+		this.product = product;
+	}
+	public List<Product> getListProduct() {
+		return listProduct;
+	}
+	public void setListProduct(List<Product> listProduct) {
+		this.listProduct = listProduct;
+	}
+
+	public int getCategoryId() {
+		return categoryId;
+	}
+
+	public void setCategoryId(int categoryId) {
+		this.categoryId = categoryId;
+	}
+
+	public int getProductId() {
+		return productId;
+	}
+
+	public void setProductId(int productId) {
+		this.productId = productId;
+	}
+	
+}

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="cmc.strust.model.Category"/>
+<fullyQualifiedTypeName name="cmc.strust.utility.ConnectDb"/>
+<fullyQualifiedTypeName name="cmc.strust.model.User"/>
+<fullyQualifiedTypeName name="cmc.strust.dao.ProductDao"/>
+<fullyQualifiedTypeName name="cmc.strust.dao.UserDao"/>
+<fullyQualifiedTypeName name="javafx.scene.chart.CategoryAxisBuilder"/>
+<fullyQualifiedTypeName name="cmc.strust.dao.CategoryDao"/>
+<fullyQualifiedTypeName name="cmc.strust.model.Product"/>
+<fullyQualifiedTypeName name="cmc.strust.bus.ProductBUS"/>
+<fullyQualifiedTypeName name="cmc.struts.model.User"/>
+<fullyQualifiedTypeName name="java.lang.String"/>
+<fullyQualifiedTypeName name="cmc.struts.model.Product"/>
+<fullyQualifiedTypeName name="cmc.struts.action.ProductAction.ProductGet"/>
+<fullyQualifiedTypeName name="cmc.struts.bus.ProductBUS"/>
+<fullyQualifiedTypeName name="com.opensymphony.xwork2.ActionSupport"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="cmc.struts.model.Category"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="cmc.struts.bus.CategoryBUS"/>
+<fullyQualifiedTypeName name="cmc.struts.bus.UserBUS"/>
+</qualifiedTypeNameHistroy>

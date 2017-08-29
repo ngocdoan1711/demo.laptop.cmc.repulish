@@ -1,0 +1,5 @@
+package cmc.strust.bus;
+
+public class UserBUS {
+
+}

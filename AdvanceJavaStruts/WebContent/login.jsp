@@ -40,8 +40,7 @@
 							</s:if>
 						</div>
 						<div class="panel-body">
-							<s:form accept-charset="UTF-8" role="form" method="post"
-								action="login">
+							<s:form accept-charset="UTF-8" role="form" method="post" action="/login">
 								<fieldset>
 									<div class="form-group">
 										<div class="input-group input-group-lg">

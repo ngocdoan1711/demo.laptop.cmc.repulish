@@ -5,7 +5,6 @@ import java.util.List;
 
 import com.opensymphony.xwork2.ActionSupport;
 
-import cmc.struts.bus.ProductBUS;
 import cmc.struts.bus.UserBUS;
 import cmc.struts.model.User;
 
@@ -150,6 +149,5 @@ public class UserAction extends ActionSupport{
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
-	
 	
 }

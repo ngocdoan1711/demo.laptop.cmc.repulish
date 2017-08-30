@@ -6,7 +6,7 @@
 	<package name="default" extends="struts-default" namespace="/">
 		<!-- define action -->
 		<!-- Session -->
-		<action name="login" class="cmc.struts.action.UserAction" method="Login">
+		<action name="login" class="cmc.struts.action.SessionAction">
 			<result name="user">/index.jsp</result>
 			<result name="error">/login.jsp</result>
 			<result name="admin">/admin/index.jsp</result>
@@ -32,7 +32,7 @@
 	<!-- Namespace admin -->
 	<package name="mypackage" extends="struts-default" namespace="/admin">
 		<!-- Action for Product -->
-		<action name="welcome" class="cmc.struts.action.SessionAction" method="getUserInfo">
+		<action name="welcome" class="cmc.struts.action.SessionAction" method="Welcome">
 			<result name="success">/admin/index.jsp</result>
 		</action>
 		<action name="getproduct" class="cmc.struts.action.ProductAction"

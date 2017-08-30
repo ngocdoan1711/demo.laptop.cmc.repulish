@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://cksource.com/ckfinder" prefix="ckfinder"%>
+<%@ taglib uri="http://cksource.com/ckfinder" prefix="ckfinder" %>
 <%@ taglib uri="/struts-tags" prefix="s"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
@@ -102,7 +102,7 @@
 											<label class="label-input">Choose image</label>
 										</div>
 										<div class="col-12 col-sm-6 col-md-8">
-											<input type="text" name="product.image" id="Image" />
+											<input type="hidden" name="product.image" id="Image" />
 											<input type="button" value="Chọn ảnh ..." onclick="BrowseServer();" />
 										</div>
 									</div>

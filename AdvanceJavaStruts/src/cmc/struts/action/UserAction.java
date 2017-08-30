@@ -2,6 +2,7 @@ package cmc.struts.action;
 
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Map;
 
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -21,6 +22,7 @@ public class UserAction extends ActionSupport{
 	private String error_login;
 	private String note;
 	private int[] deleteUserId;
+	private Map<String, Object> sessionMap;
 	
 	public String execute() throws Exception {
 		
@@ -82,6 +84,15 @@ public class UserAction extends ActionSupport{
 	}
 	
 	
+	
+	public Map<String,Object> getSessionMap() {
+		return sessionMap;
+	}
+
+	/*public void setSessionMap() {
+		this.sessionMap = (Map<String,Object>) ActionContext.getContext().get("session");
+	}*/
+
 	public int[] getDeleteUserId() {
 		return deleteUserId;
 	}

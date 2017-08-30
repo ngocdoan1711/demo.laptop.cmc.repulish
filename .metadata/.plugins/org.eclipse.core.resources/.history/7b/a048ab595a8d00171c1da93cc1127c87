@@ -1,0 +1,75 @@
+package cmc.struts.action;
+
+import java.sql.SQLException;
+import java.util.Map;
+
+import javax.servlet.http.HttpSession;
+
+import org.apache.struts2.ServletActionContext;
+
+import com.opensymphony.xwork2.ActionContext;
+import com.opensymphony.xwork2.ActionSupport;
+
+import cmc.struts.bus.UserBUS;
+import cmc.struts.model.User;
+
+public class SessionAction extends ActionSupport{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	public static final String SUCCESS = "success";
+	
+	private Map<String, Object> sessionMap;
+	private User user;
+	
+	/*Map session = (Map) ActionContext.getContext().get("session");
+	session.put("myId", myProp);
+	*/
+	
+	public String execute() {
+		// Write to the session
+		// Read from the session
+		/*
+		 * if (session.containsKey("logined")) logined=(Integer)session.get("logined");
+		 */
+
+		return SUCCESS;
+	}
+
+	public Map getSessionMap() {
+		return sessionMap;
+	}
+
+	public void setSessionMap(Map sessionMap) {
+		this.sessionMap = sessionMap;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public String getUserInfo() throws SQLException,ClassNotFoundException{
+		UserBUS userBUS = new UserBUS();
+		/*Map session = (Map) ActionContext.getContext().get("session");
+		session.put("myId", myProp);*/
+		HttpSession session = ServletActionContext.getRequest().getSession(false);
+		user.setUserId((Integer)session.getAttribute("userId"));
+		user.setUserName((String) session.getAttribute("userName"));
+		user.setEmail((String) session.getAttribute("email"));
+		user.setPhone((String) session.getAttribute("phone"));
+
+		return SUCCESS;
+	}
+
+	public String Logout() {
+		
+		return SUCCESS;
+	}
+}

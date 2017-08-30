@@ -1,0 +1,7 @@
+<classpath>
+  <container id="AdvanceJavaStruts!org.eclipse.jst.j2ee.internal.web.container">
+    <entry id="D:/github project/demo.laptop.cmc.repulish/AdvanceJavaStruts/WebContent/WEB-INF/lib/struts2-core-2.1.6.jar">
+      <source-attachment-path>/AdvanceJavaStruts/WebContent/WEB-INF/lib/struts2-core-2.1.6.jar</source-attachment-path>
+    </entry>
+  </container>
+</classpath>

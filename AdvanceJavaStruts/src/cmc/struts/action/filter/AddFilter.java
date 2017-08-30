@@ -5,26 +5,24 @@ import java.io.IOException;
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import cmc.struts.model.User;
+import org.apache.struts2.ServletActionContext;
 
 /**
  * Servlet Filter implementation class AddFilter
  */
 public class AddFilter implements Filter {
 
-    /**
-     * Default constructor. 
-     */
-    public AddFilter() {
-        // TODO Auto-generated constructor stub
-    }
+	/**
+	 * Default constructor.
+	 */
+	public AddFilter() {
+		// TODO Auto-generated constructor stub
+	}
 
 	/**
 	 * @see Filter#destroy()
@@ -36,16 +34,14 @@ public class AddFilter implements Filter {
 	/**
 	 * @see Filter#doFilter(ServletRequest, ServletResponse, FilterChain)
 	 */
-	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-		RequestDispatcher rDispatcher;
-		HttpSession session = ((HttpServletRequest) request).getSession();
-		User user = (User) session.getAttribute("user");
-		if (user == null)
-		{
-	      rDispatcher = request.getRequestDispatcher("/login.jsp");
-	      rDispatcher.forward(request, response);
-		}else
-		chain.doFilter(request, response);
+	public void doFilter(ServletRequest request, ServletResponse response,
+			FilterChain chain) throws IOException, ServletException {
+		HttpSession session = ServletActionContext.getRequest().getSession(false);
+		if (session == null || session.getAttribute("logined") == null) {
+			request.getRequestDispatcher("/login.jsp").forward(request, response);
+		} else {
+			chain.doFilter(request, response);
+		}
 	}
 
 	/**

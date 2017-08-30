@@ -36,6 +36,7 @@ public class ProductAction extends ActionSupport {
 	
 	
 	public static final String SUCCESS = "success";
+	public static final String ERROR ="error";
 	
 	private class ProductGet extends Product{
 		String categoryName;

@@ -1,0 +1,67 @@
+package cmc.struts.action;
+
+import java.sql.SQLException;
+import java.util.Map;
+
+import org.apache.struts2.interceptor.SessionAware;
+
+import cmc.struts.bus.UserBUS;
+import cmc.struts.model.User;
+import org.apache.struts2.dispatcher.SessionMap;
+
+public class SessionAction implements SessionAware {
+
+	public static final String SUCCESS = "success";
+	
+	private SessionMap<String,Object> sessionMap;
+	private User user;
+
+	public User getUser() {
+		return user;
+	}
+	
+	
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	@Override
+	public void setSession(Map<String, Object> map) {
+		sessionMap=(SessionMap)map;
+	}
+
+	public String execute() {
+		int logined = 1;
+		// Write to the session
+		sessionMap.put("logined", logined);
+		sessionMap.put("userId", user.getUserId());
+		sessionMap.put("userName", user.getUserName());
+		sessionMap.put("password", user.getPassword());
+		sessionMap.put("email", user.getEmail());
+		sessionMap.put("phone", user.getPhone());
+		sessionMap.put("access", 1);
+		
+		// Read from the session
+		/*
+		 * if (session.containsKey("logined")) logined=(Integer)session.get("logined");
+		 */
+
+		return SUCCESS;
+	}
+
+	public String getUserInfo() throws SQLException,ClassNotFoundException{
+		UserBUS userBUS = new UserBUS();
+		user = userBUS.Login((String)sessionMap.get("userName"), (String)sessionMap.get("password"));
+		System.out.println(sessionMap.get("userName"));
+		return SUCCESS;
+	}
+
+	public String Logout() {
+		sessionMap.invalidate();
+		return SUCCESS;
+	}
+	public String checkSession() throws ClassNotFoundException, SQLException{
+		
+		return SUCCESS;
+	}
+}

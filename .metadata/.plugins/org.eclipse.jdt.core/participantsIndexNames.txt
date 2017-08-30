@@ -1,0 +1,13 @@
+INDEX VERSION 1.127
+D:\github project\demo.laptop.cmc.repulish\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3419766577.index
+\AdvanceJavaStruts\src
+D:\github project\demo.laptop.cmc.repulish\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\4101152353.index
+\AdvanceJavaStruts\src
+D:\github project\demo.laptop.cmc.repulish\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3978443101.index
+\sessionaware\src
+D:\github project\demo.laptop.cmc.repulish\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1566807067.index
+\AdvanceJavaStruts\src
+D:\github project\demo.laptop.cmc.repulish\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3161849944.index
+\AdvanceJavaStruts\src
+D:\github project\demo.laptop.cmc.repulish\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3099055186.index
+\AdvanceJavaStruts\src

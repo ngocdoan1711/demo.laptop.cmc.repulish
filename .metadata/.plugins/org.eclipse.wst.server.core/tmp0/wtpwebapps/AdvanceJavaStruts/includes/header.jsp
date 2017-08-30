@@ -20,6 +20,7 @@
 	</div>
 	<div class="container">
 		<div class="navbar navbar-default">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false"><span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span></button>
 			<div class="navbar-text social-media social-media-inline pull-right">
 				<a href="#"><i class="fa fa-facebook"></i></a> <a href="#"><i
 					class="fa fa-google-plus"></i></a>

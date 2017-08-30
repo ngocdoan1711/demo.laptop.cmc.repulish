@@ -26,6 +26,9 @@
 				<div class="col-lg-12" style="margin-top: 50px;">
 					<div class="panel panel-default">
 						<div class="panel-heading">USER MANAGER</div>
+						<div class="alert alert-success" role="alert">
+						<s:property value="#session.userName"/>
+						</div>
 						<s:if test="%{note != null}">
 							<div class="alert alert-success" role="alert">
 									<s:property value="note" />

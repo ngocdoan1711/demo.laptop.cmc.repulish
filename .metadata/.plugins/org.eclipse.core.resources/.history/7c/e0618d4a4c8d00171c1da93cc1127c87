@@ -1,0 +1,68 @@
+package cmc.struts.action;
+
+import java.sql.SQLException;
+import java.util.Map;
+
+import com.opensymphony.xwork2.ActionContext;
+import com.opensymphony.xwork2.ActionSupport;
+
+import cmc.struts.bus.UserBUS;
+import cmc.struts.model.User;
+
+public class SessionAction extends ActionSupport{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	public static final String SUCCESS = "success";
+	
+	private Map sessionMap;
+	private User user;
+
+	
+	/*Map session = (Map) ActionContext.getContext().get("session");
+	session.put("myId", myProp);
+	*/
+	
+
+	
+
+	public void setSessionMap(Map sessionMap) {
+		this.sessionMap = sessionMap;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public String execute() {
+		int logined = 1;
+		// Write to the session
+		
+		
+		// Read from the session
+		/*
+		 * if (session.containsKey("logined")) logined=(Integer)session.get("logined");
+		 */
+
+		return SUCCESS;
+	}
+
+	public String getUserInfo() throws SQLException,ClassNotFoundException{
+		UserBUS userBUS = new UserBUS();
+		user = userBUS.Login((String)sessionMap.get("userName"), (String)sessionMap.get("password"));
+		System.out.println(sessionMap.get("userName"));
+		return SUCCESS;
+	}
+
+	public String Logout() {
+		
+		return SUCCESS;
+	}
+}

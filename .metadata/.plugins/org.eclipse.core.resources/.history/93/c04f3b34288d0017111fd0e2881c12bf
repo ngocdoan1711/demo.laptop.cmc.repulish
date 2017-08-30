@@ -1,0 +1,84 @@
+package cmc.struts.action;
+
+import java.sql.SQLException;
+import java.util.Map;
+
+import org.apache.struts2.interceptor.SessionAware;
+
+import com.opensymphony.xwork2.ActionSupport;
+
+import cmc.struts.bus.UserBUS;
+import cmc.struts.model.User;
+
+public class SessionAction extends ActionSupport implements SessionAware {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private Map<String, Object> session;
+	private User user;
+
+	public User getUser() {
+		return user;
+	}
+	
+	
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public Map<String, Object> getSession() {
+		return session;
+	}
+
+	@Override
+	public void setSession(Map<String, Object> session) {
+		this.session = session;
+	}
+
+	public String execute() {
+		int logined = 1;
+		// Write to the session
+		session.put("logined", logined);
+		session.put("userId", user.getUserId());
+		session.put("userName", user.getUserName());
+		session.put("password", user.getPassword());
+		session.put("email", user.getEmail());
+		session.put("phone", user.getPhone());
+		session.put("access", 1);
+		
+		// Read from the session
+		/*
+		 * if (session.containsKey("logined")) logined=(Integer)session.get("logined");
+		 */
+
+		return SUCCESS;
+	}
+
+	public String getUserInfo() throws SQLException,ClassNotFoundException{
+		UserBUS userBUS = new UserBUS();
+		user = userBUS.Login((String)session.get("userName"), (String)session.get("password"));
+		return SUCCESS;
+	}
+
+	public String Logout() {
+		session.clear();
+		// session.remove("logined");
+		// session.remove("userName");
+		// session.remove("email");
+		// session.remove("phone");
+		return SUCCESS;
+	}
+	public String checkSession() throws ClassNotFoundException, SQLException{
+		UserBUS userBUS = new UserBUS();
+		//System.out.println(session.get("userName"));
+		//System.out.println(session.get("password"));
+		/*if(userBUS.isLoginSuccess((String)session.get("userName"), (String)session.get("password"))){
+			return SUCCESS;
+		}else
+		{
+			return ERROR;
+		}*/
+		return SUCCESS;
+	}
+}

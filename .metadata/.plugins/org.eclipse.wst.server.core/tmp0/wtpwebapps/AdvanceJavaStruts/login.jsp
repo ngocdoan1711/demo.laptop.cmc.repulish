@@ -40,23 +40,22 @@
 							</s:if>
 						</div>
 						<div class="panel-body">
-							<s:form accept-charset="UTF-8" role="form" method="post"
-								action="login">
+							<form accept-charset="UTF-8" role="form" method="post" action="${pageContext.request.contextPath}	/login">
 								<fieldset>
 									<div class="form-group">
 										<div class="input-group input-group-lg">
 											<span class="input-group-addon"><i
 												class="fa fa-fw fa-envelope"></i></span>
-											<s:textfield name="userName" cssClass="form-control"
-												placeholder="UserName"></s:textfield>
+											<input type="text" name="userName" class="form-control"
+												placeholder="UserName">
 										</div>
 									</div>
 									<div class="form-group">
 										<div class="input-group input-group-lg">
 											<span class="input-group-addon"><i
 												class="fa fa-fw fa-lock"></i></span>
-											<s:password name="password" cssClass="form-control"
-												placeholder="Password"></s:password>
+											<input type="password" name="password" class="form-control"
+												placeholder="Password"/>
 										</div>
 									</div>
 									<div class="checkbox">
@@ -64,10 +63,10 @@
 											value="Remember Me"> Remember Me
 										</label>
 									</div>
-									<s:submit name="submit"
-										cssClass="btn btn-lg btn-primary btn-block" value="Login"></s:submit>
+									<button type="submit" name="submit"
+										class="btn btn-lg btn-primary btn-block" value="Login">Sign In</button>
 								</fieldset>
-							</s:form>
+							</form>
 							<p class="m-b-0 m-t">
 								Not signed up? <a
 									href="${pageContext.request.contextPath}/register.jsp">Sign
